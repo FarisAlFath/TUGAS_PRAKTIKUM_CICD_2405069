@@ -1,0 +1,74 @@
+body {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #1f2833;
+    padding: 1rem 5%;
+    border-bottom: 2px solid #66fcf1;
+}
+
+.navbar h1 span { color: #66fcf1; }
+
+.container { padding: 2rem 5%; }
+
+.hero {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(45deg, #1f2833, #0b0c10);
+    border-radius: 10px;
+}
+
+.status-tag {
+    background-color: #66fcf1;
+    color: #0b0c10;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #1f2833;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.card:hover { border-color: #66fcf1; transform: translateY(-5px); }
+
+.card img { width: 100%; border-radius: 5px; }
+
+.profile { border: 1px dashed #66fcf1; }
+
+.img-placeholder {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.dev-info {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px solid #66fcf1;
+    border-radius: 10px;
+    background: rgba(102, 252, 241, 0.1);
+}
+
+.dev-info h3 { color: #66fcf1; margin-top: 0; }
