@@ -1,4 +1,4 @@
-name: Deploy Website Praktikum CI/CD
+name: Deploy Website CI/CD
 
 on:
   push:
