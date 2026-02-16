@@ -3,47 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Anime List - CI/CD Project</title>
+    <title>Anime Hub - Faris CI/CD Project</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="navbar">
         <h1>Otaku<span>Deploy</span></h1>
+        <div class="filter-group">
+            <button class="btn-filter active" onclick="filterAnime('all')">All</button>
+            <button class="btn-filter" onclick="filterAnime('Action')">Action</button>
+            <button class="btn-filter" onclick="filterAnime('Romance')">Romance</button>
+        </div>
     </div>
 
     <div class="container">
         <div class="hero">
-            <h2>My Favorite Anime Watchlist</h2>
+            <h2>Premium Anime Watchlist</h2>
             <p>Status: <span class="status-tag">Live via GitHub Actions</span></p>
         </div>
 
-    <div class="grid">
-        <div class="card">
-            <img src="https://images.justwatch.com/poster/305591454/s166/season-1.avif" alt="Uma Musume" class="anime-poster">
-            <h3>Uma Musume Pretty Derby</h3>
-            <p>Genre: Sports, Comedy</p>
-    </div>
-        <div class="card">
-            <img src="https://cdn.myanimelist.net/images/anime/1819/97947.jpg" alt="Gotoubun" class="anime-poster">
-            <h3>Gotoubun no Hanayome</h3>
-            <p>Genre: Romance, Harem</p>
-    </div>
-        <div class="card">
-            <img src="https://images.justwatch.com/poster/100348362/s166/season-1.avif" alt="AOT" class="anime-poster">
-            <h3>Attack on Titan</h3>
-            <p>Genre: Action, Drama</p>
-    </div>
-        <div class="card">
-            <img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg" alt="JJK" class="anime-poster">
-            <h3>Jujutsu Kaisen</h3>
-            <p>Genre: Supernatural, Action</p>
-    </div>
-</div>
+        <div class="grid" id="animeGrid">
+            <div class="card" data-genre="Sports Comedy" onclick="showDetail('Uma Musume', 'Kisah gadis-gadis kuda pacu yang berjuang menjadi idola dan pelari nomor satu di Jepang.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://images.justwatch.com/poster/305591454/s166/season-1.avif" alt="Uma Musume" class="anime-poster">
+                <h3>Uma Musume Pretty Derby</h3>
+                <p class="genre">Sports, Comedy</p>
+            </div>
+            <div class="card" data-genre="Romance Harem" onclick="showDetail('Gotoubun no Hanayome', 'Futaro Uesugi mengajar lima gadis kembar identik yang benci belajar namun harus lulus ujian.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://cdn.myanimelist.net/images/anime/1819/97947.jpg" alt="Gotoubun" class="anime-poster">
+                <h3>Gotoubun no Hanayome</h3>
+                <p class="genre">Romance, Harem</p>
+            </div>
+            <div class="card" data-genre="Action Drama" onclick="showDetail('Attack on Titan', 'Umat manusia yang tersisa berlindung di balik tembok raksasa dari serangan raksasa pemakan manusia.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://images.justwatch.com/poster/100348362/s166/season-1.avif" alt="AOT" class="anime-poster">
+                <h3>Attack on Titan</h3>
+                <p class="genre">Action, Drama</p>
+            </div>
+            <div class="card" data-genre="Supernatural Action" onclick="showDetail('Jujutsu Kaisen', 'Yuji Itadori bergabung dengan sekolah penyihir setelah menelan kutukan tingkat tinggi untuk menyelamatkan temannya.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg" alt="JJK" class="anime-poster">
+                <h3>Jujutsu Kaisen</h3>
+                <p class="genre">Supernatural, Action</p>
+            </div>
+        </div>
 
         <div class="dev-info">
-            <h3>Developer Log</h3>
+            <h3>Developer Log (Deployment Info)</h3>
             <p><strong>NIM:</strong> 2405069_FARIS FATHURRAHMAN</p>
             <p><strong>Deployment Path:</strong> /var/www/html/TUGAS_PRAKTIKUM_CICD_2405069</p>
+        </div>
+    </div>
+
+    <div id="animeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDesc"></p>
         </div>
     </div>
 

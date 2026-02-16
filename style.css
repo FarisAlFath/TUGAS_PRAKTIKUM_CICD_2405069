@@ -1,94 +1,203 @@
+/* --- Root & Base Styles --- */
 body {
     background-color: #0b0c10;
     color: #c5c6c7;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+    overflow-x: hidden;
 }
 
+/* --- Navbar & Filter Group --- */
 .navbar {
     background-color: #1f2833;
     padding: 1rem 5%;
     border-bottom: 2px solid #66fcf1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.navbar h1 span { color: #66fcf1; }
+.navbar h1 span { 
+    color: #66fcf1; 
+}
 
-.container { padding: 2rem 5%; }
+.filter-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-filter {
+    background: transparent;
+    border: 1px solid #66fcf1;
+    color: #66fcf1;
+    padding: 6px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-filter.active, .btn-filter:hover {
+    background: #66fcf1;
+    color: #0b0c10;
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+}
+
+/* --- Hero Section --- */
+.container { 
+    padding: 2rem 5%; 
+}
 
 .hero {
     text-align: center;
     margin-bottom: 3rem;
-    padding: 2rem;
+    padding: 3rem 2rem;
     background: linear-gradient(45deg, #1f2833, #0b0c10);
-    border-radius: 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(102, 252, 241, 0.2);
 }
 
 .status-tag {
     background-color: #66fcf1;
     color: #0b0c10;
-    padding: 5px 15px;
+    padding: 6px 20px;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.3);
 }
 
+/* --- Grid & Cards --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
 }
 
 .card {
     background-color: #1f2833;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
-    transition: 0.3s;
-    border: 1px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(102, 252, 241, 0.1);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
 }
 
-.card:hover { border-color: #66fcf1; transform: translateY(-5px); }
+.card:hover { 
+    border-color: #66fcf1; 
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
 
-.card img { width: 100%; border-radius: 5px; }
-
-.profile { border: 1px dashed #66fcf1; }
-
-.img-placeholder {
-    height: 150px;
+/* Overlay Detail (Muncul saat Hover) */
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(102, 252, 241, 0.85);
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 3rem;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s ease;
+    z-index: 2;
 }
 
-.dev-info {
-    margin-top: 40px;
-    padding: 20px;
-    border: 2px solid #66fcf1;
-    border-radius: 10px;
-    background: rgba(102, 252, 241, 0.1);
+.overlay span { 
+    color: #0b0c10; 
+    font-weight: 800; 
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.dev-info h3 { color: #66fcf1; margin-top: 0; }
+.card:hover .overlay { 
+    opacity: 1; 
+}
 
 .anime-poster {
     width: 100%;
-    height: 300px; /* Tinggi seragam agar grid tetap rapi */
-    object-fit: cover; /* Biar gambar gak gepeng */
-    border-radius: 5px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 8px;
     margin-bottom: 15px;
-    border: 1px solid #66fcf1;
+    border: 1px solid rgba(102, 252, 241, 0.3);
 }
 
 .card h3 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #66fcf1;
     margin: 10px 0 5px 0;
 }
 
-.card p {
-    font-size: 0.9rem;
+.card .genre {
+    font-size: 0.85rem;
+    color: #9ea0a3;
+    font-style: italic;
+}
+
+/* --- Modal System --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(11, 12, 16, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #1f2833;
+    margin: 10% auto;
+    padding: 40px;
+    border: 2px solid #66fcf1;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
     color: #c5c6c7;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close {
+    color: #66fcf1;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover { color: #fff; }
+
+/* --- Footer / Dev Info --- */
+.dev-info {
+    margin-top: 50px;
+    padding: 25px;
+    border: 2px solid #66fcf1;
+    border-radius: 12px;
+    background: rgba(102, 252, 241, 0.05);
+}
+
+.dev-info h3 { 
+    color: #66fcf1; 
+    margin-top: 0; 
+    border-bottom: 1px solid rgba(102, 252, 241, 0.3);
+    padding-bottom: 10px;
+}
+
+.dev-info p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
 }
