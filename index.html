@@ -13,6 +13,8 @@
             <button class="btn-filter active" onclick="filterAnime('all')">All</button>
             <button class="btn-filter" onclick="filterAnime('Action')">Action</button>
             <button class="btn-filter" onclick="filterAnime('Romance')">Romance</button>
+            <button class="btn-filter" onclick="filterAnime('Sports')">Sports</button>
+            <button class="btn-filter" onclick="filterAnime('Comedy')">Comedy</button>
         </div>
     </div>
 
@@ -23,29 +25,53 @@
         </div>
 
         <div class="grid" id="animeGrid">
-            <div class="card" data-genre="Sports Comedy" onclick="showDetail('Uma Musume', 'Kisah gadis-gadis kuda pacu yang berjuang menjadi idola dan pelari nomor satu di Jepang.')">
+            <div class="card" data-genre="Sports Comedy" onclick="showDetail('Uma Musume', 'Gadis kuda bersaing dalam balapan sengit untuk menjadi idola nomor satu.')">
                 <div class="overlay"><span>Lihat Detail</span></div>
                 <img src="https://images.justwatch.com/poster/305591454/s166/season-1.avif" alt="Uma Musume" class="anime-poster">
-                <h3>Uma Musume Pretty Derby</h3>
+                <h3>Uma Musume</h3>
                 <p class="genre">Sports, Comedy</p>
             </div>
-            <div class="card" data-genre="Romance Harem" onclick="showDetail('Gotoubun no Hanayome', 'Futaro Uesugi mengajar lima gadis kembar identik yang benci belajar namun harus lulus ujian.')">
+            <div class="card" data-genre="Romance Romance" onclick="showDetail('Gotoubun no Hanayome', 'Kisah Futaro mengajar si kembar lima yang benci belajar.')">
                 <div class="overlay"><span>Lihat Detail</span></div>
                 <img src="https://cdn.myanimelist.net/images/anime/1819/97947.jpg" alt="Gotoubun" class="anime-poster">
                 <h3>Gotoubun no Hanayome</h3>
                 <p class="genre">Romance, Harem</p>
             </div>
-            <div class="card" data-genre="Action Drama" onclick="showDetail('Attack on Titan', 'Umat manusia yang tersisa berlindung di balik tembok raksasa dari serangan raksasa pemakan manusia.')">
+            <div class="card" data-genre="Action Drama" onclick="showDetail('Attack on Titan', 'Perjuangan terakhir umat manusia melawan para raksasa pemakan manusia.')">
                 <div class="overlay"><span>Lihat Detail</span></div>
                 <img src="https://images.justwatch.com/poster/100348362/s166/season-1.avif" alt="AOT" class="anime-poster">
                 <h3>Attack on Titan</h3>
                 <p class="genre">Action, Drama</p>
             </div>
-            <div class="card" data-genre="Supernatural Action" onclick="showDetail('Jujutsu Kaisen', 'Yuji Itadori bergabung dengan sekolah penyihir setelah menelan kutukan tingkat tinggi untuk menyelamatkan temannya.')">
+            <div class="card" data-genre="Supernatural Action" onclick="showDetail('Jujutsu Kaisen', 'Pertarungan penyihir melawan kutukan yang lahir dari emosi negatif manusia.')">
                 <div class="overlay"><span>Lihat Detail</span></div>
                 <img src="https://cdn.myanimelist.net/images/anime/1171/109222.jpg" alt="JJK" class="anime-poster">
                 <h3>Jujutsu Kaisen</h3>
                 <p class="genre">Supernatural, Action</p>
+            </div>
+            <div class="card" data-genre="Comedy Fantasy" onclick="showDetail('Konosuba', 'Kazuma Satou bereinkarnasi ke dunia fantasi bersama dewi yang tidak berguna.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://cdn.myanimelist.net/images/anime/8/77831.jpg" alt="Konosuba" class="anime-poster">
+                <h3>Konosuba</h3>
+                <p class="genre">Comedy, Fantasy</p>
+            </div>
+            <div class="card" data-genre="Action Comedy" onclick="showDetail('Zom 100', 'Akira merayakan kiamat zombie karena dia tidak perlu pergi bekerja lagi.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://cdn.myanimelist.net/images/anime/1317/136081.jpg" alt="Zom 100" class="anime-poster">
+                <h3>Zom 100</h3>
+                <p class="genre">Action, Comedy</p>
+            </div>
+            <div class="card" data-genre="Romance Comedy" onclick="showDetail('Kaguya-sama', 'Perang psikologis antara dua jenius untuk membuat lawan menyatakan cinta terlebih dahulu.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://cdn.myanimelist.net/images/anime/1295/106551.jpg" alt="Kaguya" class="anime-poster">
+                <h3>Kaguya-sama</h3>
+                <p class="genre">Romance, Comedy</p>
+            </div>
+            <div class="card" data-genre="Sports Action" onclick="showDetail('Haikyuu!!', 'Shoyo Hinata bertekad menjadi pemain voli hebat meskipun bertubuh pendek.')">
+                <div class="overlay"><span>Lihat Detail</span></div>
+                <img src="https://cdn.myanimelist.net/images/anime/7/76014.jpg" alt="Haikyuu" class="anime-poster">
+                <h3>Haikyuu!!</h3>
+                <p class="genre">Sports, Action</p>
             </div>
         </div>
 
